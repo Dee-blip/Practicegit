@@ -1,0 +1,135 @@
+This episode is about to ready your app for the production. We will see this upcoming hour.
+
+Make sure your code follows -
+Optimize your code
+Not so many comments
+Console.log not should be there
+Minify ur code
+bundle/compress/minify the multiple files
+Optimize your code
+Do lot of processing of the code in your local system before send to prod.
+Only React is not sufficient to create the app scalable, production ready there are more other things that helps developers to ready production code by different modules, sets of libraries.
+NPM -  https://www.npmjs.com/
+ 	https://github.com/npm/npm-expansions
+It does not belong to only node package module or we can say does not stand to this . its does not have any full form. It manages the packages. Or its package manager.
+Is a standard repo for all the packages . any package u want to include in the react u can	use npm any utilities, packages, modules.
+Lot of u would have been confused like A What are you talking since 5 min?
+
+
+
+
+Above terminal code generated one package.json is just configuration for the npm.
+Need? package.json– also known as dependencies . it helps us to manager the dependencies package that we take from others to maintain their version etc
+Bundler Package- bundles ur files and send to the production
+Parcel Package - easy to configure and ignite our application by using this bundler.
+Webpack Pack 
+Install Parcel Package - Npm install -D parcel – D represent dev dependencies
+Dev dependencies and Normal dependencies
+What's the difference between tilde(~) and caret(^) in package.json?-
+https://stackoverflow.com/questions/22343224/whats-the-difference-between-tilde-and-caret-in-package-json
+Difference between package. json and package.json
+Package.json- configuration of the npm and keep the track the version of the packages you installed.
+Package-lock.json- kind of locks the version and keep the records of every exact version that you installed.
+Node-modules - is the actual code of the package you installed or it contains the actual
+data/dependencies of your package.
+So apart from parcel inside node-modules - they are dependencies on the parcel package and those dependencies has its own dependencies - known as transistive dependencies. Parcel uses almost every libraries like barbel, browser list.
+Every dependencies inside the node-modules has its own package.json/dev dependencies/normal dependencies.
+Should i push this node-modules or dependencies module to the production?-  Answer is no because u can recreate this in ur local machine by npm install.you need to put inside the git ignore. So it will ignore the modules 
+Should i put package.json and package-lock.json?- yes u need to push into github or production.
+Question?
+Why this?
+Why that?
+Where is doing that?
+How is doing that?
+Is this the only way?
+Whatever u can regenerate don’t put on git just only essential things u need.
+Npm install- install the node-modules
+
+
+
+
+
+
+
+
+1 hour over
+1:05:00 start
+
+Npx parcel index.html - it host our app into the localhost server .basically it created the server. 
+Npx -execute the package but to install the package we need npm.
+Other way to get into React that we can use npm command also. We don’t want to use those cdn link in react because
+ fetch from cdm take costly operation network call to cdn then fetch suppose if already have in react node-modules so it makes easier for us.
+Also in cdn link they mentioned the react verision like react18 may be in future it version got changed so we need to do it but node-modules automatically take care of this.
+How we can install via node-modules-
+Npm install/i react
+Npm install/i react-dom
+Remove the cdn
+Parcel Featurs
+Dev Build 
+Local Server 
+HMR = Hot Module Replacement- automatically refreshed 
+File Watching Algorithm - Parcel using this algorithm - written in C++ 
+Parcel is also caching for you - faster development experience 
+Image Optimizing- most expensive thing in the applications - parcel helps in minification of the files 
+Minification 
+Bundling 
+Compressing 
+Consistent Hashing 
+Code Splitting 
+Differential Bundling - ur app can be open in any browser and parcel takes care of the thing to support new/older browser. 
+Diagnostic- good error suggestions./ Error Handling. -gives the way to host to your app in HTTPs. 
+Tree Shaking- remove unused code 
+Different dev and prod bundles
+Prod build bundles-  npx parcel build index.html
+
+https://parceljs.org/
+https://parceljs.org/features/development/
+Narendra modi is the react and amit shah is parcel .
+ npx parcel build index.html - if u get any error like in the error they mention some app.js or some other files because when u created npm by default u mentioned app.js file there so remove that from package. Json and run it again. After it the dist folder contains the prod build and also generated main three files html, css,js.
+After this command run so parcel all feature enforced in creating 3 files and ready for prod.
+We don’t need to push dist and parcel-cache in prod and git they can be regenerated and also server already have all this command npm install and others . only push package.json and package-lock.json.
+How to compatible for older/newer browsers?
+https://browserslist.dev/?q=bGFzdCAyIHZlcnNpb25z
+All configuration will happen in package.json file.
+https://github.com/browserslist/browserslist#query-composition
+"browserslist":[ "last 2 Chrome version", "last 2 Firefox version" ] mentioned this in package. Json.
+
+
+
+
+
+Assignment 
+
+NPM? - is manager all ur packages. And if you want to install some package, and its dependencies it will help you in this along its manages you. 
+Parcel/webpack ? why do we need it?
+Parcel is easy to bundle and configuration that bundle we can send to production. And it comes with Lots of features like I mentioned above.
+Webpack - it helps in bundle ur assests.
+Main difference between is Webpack throws all of the CSS/HTML/JS files in one single folder whereas Parcel group all of them in very structured folder.
+Parcel-cache - is very amazing feature that helps in enhancing the development experience because it stored the information about ur project inside it so whenever it rebuild again so it doesn't have to re-parse and re-analyze everything from scratch. use that information to execute faster. 
+Npx- is help to execute the dependency and create the local server to see the development changes.
+Dev dependencies and Dependencies
+Dependencies are used for the production and testing env
+Dev used for local env for self purpose only.
+Tree shaking - is used to remove the unused code that is not used in the application or we can say it helps in remove deal code elimination.
+Hot Module replacement - Its automatically refreshed the changes quickly in the local server.
+Top 5 feature of Parcel and explain them.
+Git.ignore and what should we add.?
+Difference between package.json and package-lock.json
+Mentioned above in my notes
+Why should i not modify the package-lock.json? -It is a generated file and is not designed to be manually edited. Its purpose is to track the entire tree of dependencies (including dependencies of dependencies) and the exact version of each dependency.
+Node_modules- is hold and structured all your dependencies related like we installed react npm its hold that dependencies . we can recreate this again so not needed to install it again. So its not good to idea to push it into the git.
+Dist - it holds  all your files that are meant to be send in prod - HTML/CSS/JS  - they are automatically recreate when you execute the index.html file and so it apply all the feature in all ur files.
+Caret^ between ~ -tilda - when u use caret then it automatically update your version of ur dependencies whereas tilda update  u to all future patch versions without incrementing the minor version
+Browserlists- It is npm package which can limit the functionioning of applications to certain browsers, browser versions, locations etc.
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script - Must Read
+
+
+Commands
+1. npx parcel build index.html - Prod build
+2. npm package index.html - dev build
+3. npm install (package_name) - Install package (install can be replaced with only "i")
+
+
+
+
+
